@@ -1,0 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* Custom caret block class */
+.caret-terminal::after {
+    caret-shape: block;
+}
+
+
+body {
+    background-color:rgb(31 41 55);;
+}
