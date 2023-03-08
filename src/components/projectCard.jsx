@@ -15,7 +15,7 @@ export default function ProjectCard({name, picture, description, github_link}) {
         <>
         
         <div className="relative transform transition duration-500 hover:shadow-2xl hover:shadow-white hover:scale-95 hover:border-solid border-dashed border-white border-2 w-screen md:w-1/3 p-3">
-            <div className="flex justify-center items-center h-full">
+            <div className="flex justify-center items-center h-full m-auto">
 
             <img className="mx-auto m-4" src={"/src/assets/"+picture} alt="" />
             </div>
