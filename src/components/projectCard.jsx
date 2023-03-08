@@ -18,9 +18,9 @@ export default function ProjectCard({name, picture, description, github_link}) {
 
             <img className="mx-auto m-4" src={picture} alt="" />
             </div>
-            <div className="opacity-0 p-5  absolute gap-5 flex-col items-center  transform transition duration-100 hover:opacity-100  hover:flex hover:bg-gray-800 hover:bg-opacity-80 inset-0 w-full h-full">
+            <div className="opacity-0 p-5  absolute gap-1 flex-col items-center justify-center  transform transition duration-100 hover:opacity-100  hover:flex hover:bg-gray-800 hover:bg-opacity-80 inset-0 w-full h-full">
                 <h1 className="text-xl">#{name}</h1>
-                <p className="text-xs lg:text-base" >{description}</p>
+                <p className="text-xs font-extralight lg:text-base" >{description}</p>
                 <a className="hover:bg-transparent mx-auto hover:text-white bg-slate-100 text-gray-800" href={github_link}>GITHUB-Link</a>
             </div>
         </div>
