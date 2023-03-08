@@ -1,5 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import "../index.css";
 
 import {commands} from '../commands/commands';
 
@@ -24,19 +25,37 @@ function Terminal() {
     //keyup
     if (event.keyCode == '38') {
       
-      console.log(historyCounter, inputs.length)
+      console.log(historyCounter, inputs.length,inputs)
       if (historyCounter === 0 && inputs.length === 0) {
         err.play();
         return;
       }
-
-      if (historyCounter > 0) {setHistoryCounter(historyCounter - 1)}
-      if (inpRef.current){
-        inpRef.current.value = inputs[historyCounter - 1] || inputs[historyCounter]
+      if (historyCounter === inputs.length) {
+        if (inpRef.current) {
+          inpRef.current.value = inputs[historyCounter-1]
+        }
+        else{
+          firstInpRef.current.value = inputs[historyCounter-1]
+        }
+        setHistoryCounter(historyCounter-2)
         return;
       }
-      firstInpRef.current.value = inputs[historyCounter - 1] || inputs[historyCounter]
-      
+      if (inpRef.current) {
+        if (historyCounter > 0) {
+          inpRef.current.value = inputs[historyCounter]
+          setHistoryCounter(historyCounter-1)
+          return;
+        }
+        inpRef.current.value = inputs[historyCounter]
+        return;
+      }
+      if (historyCounter > 0) {
+        firstInpRef.current.value = inputs[historyCounter]
+        setHistoryCounter(historyCounter-1)
+        return;
+      }
+      firstInpRef.current.value = inputs[historyCounter]
+      return;
     }
 
 
@@ -99,17 +118,36 @@ function Terminal() {
 
     // process the result-----------------------------------------------------------------------------------------------------------
     if (event.key === "Enter") {
-      // handle clear
+      // handle clear----------------------------
+      
       if ((firstInpRef.current.value.trim() == "clear" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "clear") ) {
         setResults([])
         setInputs([...inputs, "clear"])
-        setHistoryCounter(inputs.length-1)
+        setHistoryCounter(inputs.length)
         firstInpRef.current.value =""
         firstInpRef.current.disabled = false
         firstInpRef.current.focus()
         return;
       }
-      // handle other commands
+
+      if((firstInpRef.current.value.trim() == "touch" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "touch") ){
+        nav("/contact")
+      }
+      if((firstInpRef.current.value.trim() == "instagram" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "instagram") ){
+        window.location.href = "https://www.instagram.com/you.___.ker/"
+      }
+      if((firstInpRef.current.value.trim() == "github" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "github") ){
+        window.location.href = "https://github.com/Youker17"
+      }
+      if ((firstInpRef.current.value.trim() == "exit" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "exit") ) {
+        window.location.href = "https://google.com"
+      }
+      if ((firstInpRef.current.value.trim() == "suprise" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "suprise") ) {
+        window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+      }
+
+
+      // handle other commands-------------------------
       firstInpRef.current.disabled = true
       if (inpRef.current) {
         inpRef.current.disabled = true
@@ -153,10 +191,10 @@ function Terminal() {
 
 
         <div ref={containerRef}>
-          <p className='text-gray-500'>type command "<span className='text-gray-800 bg-gray-300'>help</span>" to see available commands</p>
+          <p className='text-gray-500 animate-typing writer mb-10  will-change-transform'>type command "<span className='text-gray-800 bg-gray-300'>help</span>" to see available commands</p><div className='border-l-2 border-white animate-pulse w-1 h-full'></div>
           <div>
-            <span className="text-green-400">YOUSSEFE-ELMOFAKER:~$</span>
-            <input type="text" autoFocus className="bg-transparent pl-2 focus:outline-none border-0 caret-terminal" ref={firstInpRef} onKeyDown={handleInput} />
+            <span className="text-green-400"><span className="text-yellow-400">guest@</span>YOUSSEFE-ELMOFAKER:~$</span>
+            <input type="text" autoFocus className="bg-transparent pl-2 w-2/3 focus:outline-none border-0 caret-terminal" ref={firstInpRef} onKeyDown={handleInput} />
           </div>
           {
             results.map((e, index) => {
@@ -164,8 +202,8 @@ function Terminal() {
               return (<>
                 <pre>{e}</pre>
                 <div>
-                  <span className="text-green-400">YOUSSEFE-ELMOFAKER:~$</span>
-                  <input type="text" autoFocus className="bg-transparent pl-2 focus:outline-none border-0 caret-terminal" ref={inpRef} onKeyDown={handleInput} />
+                  <span className="text-green-400"><span className="text-yellow-400">guest@</span>YOUSSEFE-ELMOFAKER:~$</span>
+                  <input type="text" autoFocus className="bg-transparent pl-2 w-2/3 focus:outline-none border-0 caret-terminal" ref={inpRef} onKeyDown={handleInput} />
                 </div>
 
               </>)

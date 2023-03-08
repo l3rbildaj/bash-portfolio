@@ -6,15 +6,18 @@ export const commands = {
     ┏━┓╻  ╻     ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓   [-]
     ┣━┫┃  ┃     ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
     ╹ ╹┗━╸┗━╸   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛   [-]
-
+        
         >> help 
         >> projects 
         >> about  
         >> expierence 
         >> skills 
+        >> touch
         >> email
-        >> clear ("clear the terminal -> clear the mind ;)")
-        >> play  ("a game i created")
+        >> instagram
+        >> github
+        >> clear ("clear the terminal === clear the mind ;)")
+        >> exit
         >> suprise ("are you sure ?")
 
     [NOTE]you can navigate the history using the up and down arrow keys. 
@@ -45,7 +48,7 @@ export const commands = {
     ###### #    # #      # ###### #    # ###### #    #  ####  ######  ####
 -------------------------------------------------------------------------------
     IZI-Protiene :
-                    position => backend/frontend Developer.
+                    position => backend & frontend Developer.
                     url => "https://domain.com"
 
     still searching for new experiences ! 
@@ -75,7 +78,14 @@ export const commands = {
     "suprise":"",
     "hi":"welcome !",
     "hello":"this portfolio was made with love ! ;)",
-    "email":"youssefelmofaker@icloud.com",
+    "how are you" :"m great what abot you !",
     "suprise":"wait for it ...",
-    "play":"wait for it..."
+    "exit":"sorry to cya leave :( ...",
+    "touch":`
+   ╺┳┓┏━┓┏━┓┏━┓   ┏┳┓┏━╸   ┏━┓   ┏┳┓┏━╸┏━┓┏━┓┏━┓┏━╸┏━╸
+    ┃┃┣┳┛┃ ┃┣━┛   ┃┃┃┣╸    ┣━┫   ┃┃┃┣╸ ┗━┓┗━┓┣━┫┃╺┓┣╸     💻
+   ╺┻┛╹┗╸┗━┛╹     ╹ ╹┗━╸   ╹ ╹   ╹ ╹┗━╸┗━┛┗━┛╹ ╹┗━┛┗━╸ 
+    `,
+    "github":"i am redirecting you ^^ cya...",
+    "instagram":"i am redirecting you ^^ cya...",
 }
