@@ -37,7 +37,7 @@ function Terminal() {
         else{
           firstInpRef.current.value = inputs[historyCounter-1]
         }
-        setHistoryCounter(historyCounter-2)
+        setHistoryCounter((historyCounter-2 >= 0)?historyCounter-2: historyCounter-1)
         return;
       }
       if (inpRef.current) {
@@ -120,7 +120,7 @@ function Terminal() {
     if (event.key === "Enter") {
       // handle clear----------------------------
       
-      if ((firstInpRef.current.value.trim() == "clear" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "clear") ) {
+      if (((firstInpRef.current.value.trim() == "clear" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "clear")) || ((firstInpRef.current.value.trim() == "cls" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "cls"))) {
         setResults([])
         setInputs([...inputs, "clear"])
         setHistoryCounter(inputs.length)
@@ -130,7 +130,7 @@ function Terminal() {
         return;
       }
 
-      if((firstInpRef.current.value.trim() == "touch" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "touch") ){
+      if(((firstInpRef.current.value.trim() == "touch" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "touch")) || ((firstInpRef.current.value.trim() == "contact" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "contact")) ){
         nav("/contact")
       }
       if((firstInpRef.current.value.trim() == "instagram" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "instagram") ){
@@ -192,18 +192,18 @@ function Terminal() {
 
         <div ref={containerRef}>
           <p className='text-gray-500 animate-typing writer mb-10  will-change-transform'>type command "<span className='text-gray-800 bg-gray-300'>help</span>" to see available commands</p><div className='border-l-2 border-white animate-pulse w-1 h-full'></div>
-          <div>
-            <span className="text-green-400"><span className="text-yellow-400">guest@</span>YOUSSEFE-ELMOFAKER:~$</span>
-            <input type="text" autoFocus className="bg-transparent pl-2 w-2/3 focus:outline-none border-0 caret-terminal" ref={firstInpRef} onKeyDown={handleInput} />
+          <div className="flex flex-row text-xs md:text-lg">
+            <span className="text-green-400"><span className="text-yellow-400">guest@</span>YOU-KER:~$</span>
+            <input type="text" autoFocus className="bg-transparent text-xs font-semibold text-yellow-100 md:text-xl pl-2 w-2/3 focus:outline-none border-0 caret-terminal" ref={firstInpRef} onKeyDown={handleInput} />
           </div>
           {
             results.map((e, index) => {
 
               return (<>
-                <pre>{e}</pre>
-                <div>
-                  <span className="text-green-400"><span className="text-yellow-400">guest@</span>YOUSSEFE-ELMOFAKER:~$</span>
-                  <input type="text" autoFocus className="bg-transparent pl-2 w-2/3 focus:outline-none border-0 caret-terminal" ref={inpRef} onKeyDown={handleInput} />
+                <pre className="text-xs md:text-lg">{e}</pre>
+                <div className="flex flex-row text-xs md:text-lg">
+                  <span className="text-green-400"><span className="text-yellow-400">guest@</span>YOU-KER:~$</span>
+                  <input type="text" autoFocus className="bg-transparent text-xs font-semibold text-yellow-100 md:text-xl pl-2 w-2/3 focus:outline-none border-0 caret-terminal" ref={inpRef} onKeyDown={handleInput} />
                 </div>
 
               </>)

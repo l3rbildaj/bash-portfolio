@@ -9,19 +9,21 @@ export const commands = {
         
         >> help 
         >> projects 
-        >> about  
-        >> expierence 
+        >> about   
+        >> experience
         >> skills 
-        >> touch
-        >> email
+        >> touch (or contact)
         >> instagram
         >> github
         >> clear ("clear the terminal === clear the mind ;)")
+        >> cls
         >> exit
         >> suprise ("are you sure ?")
 
     [NOTE]you can navigate the history using the up and down arrow keys. 
     [NOTE]you can auto complete using the TAB key. 
+    [NOTE]all commands are case insensetive. 
+
 
     thanks for visting ^^ !
     `,
@@ -78,7 +80,7 @@ export const commands = {
     "suprise":"",
     "hi":"welcome !",
     "hello":"this portfolio was made with love ! ;)",
-    "how are you" :"m great what abot you !",
+    "how are you" :"m great what about you !",
     "suprise":"wait for it ...",
     "exit":"sorry to cya leave :( ...",
     "touch":`
@@ -88,4 +90,32 @@ export const commands = {
     `,
     "github":"i am redirecting you ^^ cya...",
     "instagram":"i am redirecting you ^^ cya...",
+    "ls":`
+    ┏━┓╻  ╻     ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓   [-]
+    ┣━┫┃  ┃     ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
+    ╹ ╹┗━╸┗━╸   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛   [-]
+        
+        >> help 
+        >> projects 
+        >> about  
+        >> experience 
+        >> skills 
+        >> touch
+        >> instagram
+        >> github
+        >> clear ("clear the terminal === clear the mind ;)")
+        >> cls
+        >> exit
+        >> suprise ("are you sure ?")
+
+    [NOTE]you can navigate the history using the up and down arrow keys. 
+    [NOTE]you can auto complete using the TAB key. 
+    [NOTE]all commands are case insensetive. 
+
+    thanks for visting ^^ !
+    `,
+    "cls":"",
+    "clear":"",
+    "contact":"",
+    "cd":"hmmmm i dont think u can do that",
 }

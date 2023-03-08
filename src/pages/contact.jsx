@@ -51,7 +51,7 @@ export default function Contact(){
 
 
     return (<>
-    <p>click <span className="bg-red-400 animate-pulse p-1">esc</span> to exit</p>
+    <p>click <span className="bg-red-400 animate-pulse p-1" onClick={()=>nav("/")}>esc</span> to exit</p>
     <div class="container px-6 mx-auto">
 
     

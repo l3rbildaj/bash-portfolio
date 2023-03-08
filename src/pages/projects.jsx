@@ -19,7 +19,7 @@ export default function Projects(){
 
     })
     return (<>
-    <p>click <span className="bg-red-400 animate-pulse p-1">esc</span> to exit</p>
+    <p>click <span className="bg-red-400 animate-pulse p-1" onClick={()=>nav("/")}>esc</span> to exit</p>
     
     
     <div className="flex flex-wrap">
