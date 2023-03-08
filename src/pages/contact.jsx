@@ -52,7 +52,7 @@ export default function Contact(){
 
     return (<>
     <p>click <span className="bg-red-400 animate-pulse p-1">esc</span> to exit</p>
-    <div class="container my-24 px-6 mx-auto">
+    <div class="container px-6 mx-auto">
 
     
     <section class="mb-32 text-center ">
