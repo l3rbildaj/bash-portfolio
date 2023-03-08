@@ -120,7 +120,7 @@ function Terminal() {
     if (event.key === "Enter") {
       // handle clear----------------------------
       
-      if (((firstInpRef.current.value.trim() == "clear" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "clear")) || ((firstInpRef.current.value.trim() == "cls" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "cls"))) {
+      if (((firstInpRef.current.value.trim().toLowerCase() == "clear" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim().toLowerCase() == "clear")) || ((firstInpRef.current.value.trim().toLowerCase() == "cls" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim().toLowerCase() == "cls"))) {
         setResults([])
         setInputs([...inputs, "clear"])
         setHistoryCounter(inputs.length)
@@ -130,19 +130,19 @@ function Terminal() {
         return;
       }
 
-      if(((firstInpRef.current.value.trim() == "touch" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "touch")) || ((firstInpRef.current.value.trim() == "contact" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "contact")) ){
+      if(((firstInpRef.current.value.trim().toLowerCase() == "touch" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim().toLowerCase() == "touch")) || ((firstInpRef.current.value.trim().toLowerCase() == "contact" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim().toLowerCase() == "contact")) ){
         nav("/contact")
       }
-      if((firstInpRef.current.value.trim() == "instagram" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "instagram") ){
+      if((firstInpRef.current.value.trim().toLowerCase() == "instagram" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim().toLowerCase() == "instagram") ){
         window.location.href = "https://www.instagram.com/you.___.ker/"
       }
-      if((firstInpRef.current.value.trim() == "github" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "github") ){
+      if((firstInpRef.current.value.trim().toLowerCase() == "github" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim().toLowerCase() == "github") ){
         window.location.href = "https://github.com/Youker17"
       }
-      if ((firstInpRef.current.value.trim() == "exit" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "exit") ) {
+      if ((firstInpRef.current.value.trim().toLowerCase() == "exit" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim().toLowerCase() == "exit") ) {
         window.location.href = "https://google.com"
       }
-      if ((firstInpRef.current.value.trim() == "suprise" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim() == "suprise") ) {
+      if ((firstInpRef.current.value.trim().toLowerCase() == "suprise" && !inpRef.current) || (inpRef.current && inpRef.current.value.trim().toLowerCase() == "suprise") ) {
         window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
       }
 
@@ -151,30 +151,30 @@ function Terminal() {
       firstInpRef.current.disabled = true
       if (inpRef.current) {
         inpRef.current.disabled = true
-        if (commands[inpRef.current.value.trim()] === undefined) {
+        if (commands[inpRef.current.value.trim().toLowerCase()] === undefined) {
           err.play()
-          setInputs([...inputs, inpRef.current.value.trim()])
-          setResults([...results, `sorry command '${inpRef.current.value.trim()}' doesnt exist :( \n try 'help' to see all commands.`])
+          setInputs([...inputs, inpRef.current.value.trim().toLowerCase()])
+          setResults([...results, `sorry command '${inpRef.current.value.trim().toLowerCase()}' doesnt exist :( \n try 'help' to see all commands.`])
           setHistoryCounter(inputs.length)
           return;
         }
-        setResults([...results, commands[inpRef.current.value.trim()]])
-        setInputs([...inputs, inpRef.current.value.trim()])
+        setResults([...results, commands[inpRef.current.value.trim().toLowerCase()]])
+        setInputs([...inputs, inpRef.current.value.trim().toLowerCase()])
         setHistoryCounter(inputs.length) 
-        if (inpRef.current.value.trim() === "projects") {nav("/projects")}
+        if (inpRef.current.value.trim().toLowerCase() === "projects") {nav("/projects")}
         return;
       }
-      if (commands[firstInpRef.current.value.trim()] === undefined) {
+      if (commands[firstInpRef.current.value.trim().toLowerCase()] === undefined) {
         err.play()
-        setResults([...results, `sorry command '${firstInpRef.current.value.trim()}' doesnt exist :( \ntry 'help' to see all commands.`])  
-        setInputs([...inputs, firstInpRef.current.value.trim()])
+        setResults([...results, `sorry command '${firstInpRef.current.value.trim().toLowerCase()}' doesnt exist :( \ntry 'help' to see all commands.`])  
+        setInputs([...inputs, firstInpRef.current.value.trim().toLowerCase()])
         setHistoryCounter(inputs.length)      
         return;
       }
-      setInputs([...inputs, firstInpRef.current.value.trim()])
+      setInputs([...inputs, firstInpRef.current.value.trim().toLowerCase()])
       setHistoryCounter(inputs.length)
-      setResults([...results, commands[firstInpRef.current.value.trim()]])
-      if (firstInpRef.current.value.trim() === "projects") {nav("/projects")}
+      setResults([...results, commands[firstInpRef.current.value.trim().toLowerCase()]])
+      if (firstInpRef.current.value.trim().toLowerCase() === "projects") {nav("/projects")}
 
     }
   }
@@ -182,8 +182,12 @@ function Terminal() {
   useEffect(
     () => {
 
-      window.addEventListener("keydown", (event)=>{
-       
+      window.addEventListener("click", (event)=>{
+        if (inpRef.current){
+          inpRef.current.focus()
+          return;
+        }
+        firstInpRef.current.focus()
       })
     }, [])
 
