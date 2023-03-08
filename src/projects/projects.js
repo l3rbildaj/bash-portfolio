@@ -16,5 +16,11 @@ export const projects = [
         img:"stage-management.png",
         description:"This Python Tkinter-based app is a desktop application that utilizes PyMongo to perform CRUD (Create, Read, Update, Delete) operations on a MongoDB database. The app features a user-friendly graphical interface created with Tkinter that allows users to interact with the database easily.",
         link:"#"
+    },
+    {
+        name:"todo",
+        img:"todo.png",
+        description:"The Todo project is a web application developed using React, Redux, and Next UI on the frontend and Django (DRF) on the backend. The application provides users with the ability to create, update, and delete tasks to manage their daily activities. The authentication feature ensures that only authenticated users can access the application's functionality.",
+        link:"#"
     }
 ]
