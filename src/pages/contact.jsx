@@ -31,7 +31,7 @@ export default function Contact(){
             to_name:"youssef elmofaker",
             from_name:nameRef.current.value,
 
-        },"sS9GoFHUl-5Jh3fti").then(message=>{console.log(message);nav("/")}).catch(err=>console.log(err=>console.log(err)))
+        },"5ZBe0tYwyasbhRahX").then(message=>{console.log(message);nav("/")}).catch(err=>console.log(err))
     }
 
 

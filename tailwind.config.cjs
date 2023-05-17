@@ -2,7 +2,12 @@
 module.exports = {
   content: ["./index.html", "./src/**/*.{jsx,tsx,js,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily:{
+        climate:"'Climate Crisis', cursive",
+        diamond:"'Tilt Prism', cursive"
+      }
+    },
   },
   plugins: [],
 }

@@ -90,7 +90,7 @@ function Terminal() {
     if(event.key == "Tab"){
       event.preventDefault();
       console.log("in auto complete pressed")
-      if (inpRef.current ){
+      if (inpRef.current){
         
         let simcommands = Object.keys(commands).filter((e)=>e.slice(0,inpRef.current.value.length) === inpRef.current.value);
         console.log(simcommands[0], simcommands)
